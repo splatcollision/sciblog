@@ -1,0 +1,38 @@
+#header {
+  margin: 2rem 0px; }
+
+#footer {
+  margin: 2rem 0px;
+  padding-top: 3rem;
+  color: #777777;
+  font-size: 1.3rem;
+  line-height: 1.4; }
+
+h1 {
+  line-height: 1.1; }
+
+body {
+  font-size: 2rem;
+  line-height: 1.6;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+#body, #header {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr; }
+
+.main {
+  grid-column: 2; }
+
+#header .container {
+  grid-column: 3; }
+
+.meta {
+  font-family: monospace;
+  color: #999;
+  font-size: 1.3rem;
+  line-height: 1.4; }
+
+@media screen and (max-width: 880px) {
+  #body, #header {
+    grid-template-columns: 1fr;
+    margin: 0 1rem; } }
