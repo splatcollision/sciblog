@@ -8,11 +8,24 @@ var keystone = require('keystone');
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
+var mongostr = process.env.MONGODB_URI_LOCAL;
+
+if (process.env.NODE_ENV === 'production') mongostr = process.env.MONGODB_URI;
+
+console.log("mongostr", mongostr);
 
 keystone.init({
 	'name': 'Splat Collision Industries',
 	'brand': 'Splat Collision Industries',
-
+	'mongo': mongostr,
+	'mongo options': {
+		server: {
+		    socketOptions: {
+		    	socketTimeoutMS: 0,
+				connectionTimeout: 0
+		    }
+		}
+	},
 	'sass': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',

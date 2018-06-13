@@ -23,6 +23,11 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node keystone.js"
-  }
+    "start": "node keystone.js",
+    "startprod": "NODE_ENV=production node keystone.js"
+  },
+  "engines": {
+      "node": "9.9.0",
+      "npm": "5.6.0"
+    }
 }
