@@ -34,12 +34,17 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
+	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
+	app.get('/deploy', middleware.requireUser, routes.views.deploy);
+	
 	app.get('/', routes.views.blog);
 	app.get('/about/', routes.views.about);
+	app.get('/rss/feed.xml', routes.views.feed);
 	app.get('/:category?', routes.views.blog);
 	app.get('/post/:post', routes.views.post);
 
-	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
-	// app.get('/protected', middleware.requireUser, routes.views.protected);
+
+
+	
 
 };

@@ -19,7 +19,6 @@ body {
 	line-height: 1.6;
 	// display: grid;
 	 font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
 	// font-family: 'IBM Plex Sans', sans-serif;
 }
 
@@ -30,10 +29,35 @@ body {
 
 .main {
 	grid-column: 2;
+	width: 80%;
 }
 
-#header .container {
+
+
+.bigheader {
+	grid-column: 1/4;
+	grid-row: 1;
+	color: #f0f0f0;
+	h1 {
+		font-size: 7rem;
+	    line-height: 1;
+	    position: absolute;
+	    top: -6rem;
+	    left: -1rem;
+	    z-index: -1;
+	}
+}
+.nav {
 	grid-column: 3;
+	grid-row: 1;
+	margin: 3rem 0;
+	font-size: 1.3rem;
+
+
+}
+
+footer {
+	margin: 0 1rem;
 }
 
 .meta {
@@ -44,9 +68,21 @@ body {
 }
 
 @media screen and (max-width: 880px) {
+	body {
+		font-size: 1.6rem;
+	}
 	#body, #header {
 		// border: 1px solid red;
 		grid-template-columns: 1fr;
 		margin: 0 1rem;
 	}
+	.main, .nav, .container {
+		grid-column: 1;
+		width: 95%;
+	}
+	#body .nav {
+		grid-row: initial;
+	}
 }
+
+

@@ -1,0 +1,8 @@
+extends ../layouts/default
+
+block content
+	.container
+		h1 Deploy Complete
+	.container.main
+		p All files published.
+		pre=JSON.stringify(message, null, 2)

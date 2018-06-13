@@ -21,17 +21,17 @@ mixin post(post)
 						| , 
 					else
 						|  
-			if post.author
+			//- if post.author
 				| by #{post.author.name.first}
 		//- if post.content.extended
 			//- p.read-more: a(href='/blog/post/' + post.slug) Permalink
 
 block intro
 	.container
-		h1= data.category ? data.category.name : 'Writing'
+		h1= data.category ? data.category.name : 'Blog'
 
 block content
-	.container
+	.container.main
 		
 		if filters.category && !data.category
 			h3.text-muted Invalid Category.
@@ -72,10 +72,10 @@ block content
 					h3.text-muted There are no posts yet.
 		
 	if data.categories.length
-		.container
+		.container.nav
 			
-			a(href='/', class=!data.category ? 'active' : false).list-group-item All tags
-			br
+			//- a(href='/', class=!data.category ? 'active' : false).list-group-item All tags
+			//- br
 			each cat in data.categories
 				a(href='/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
 				br

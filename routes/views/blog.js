@@ -1,11 +1,12 @@
 var keystone = require('keystone');
 var async = require('async');
 
+var staticr = keystone.get('staticr');
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-
+	// console.log("req", req);
 	// Init locals
 	locals.section = 'blog';
 	locals.filters = {
@@ -79,5 +80,9 @@ exports = module.exports = function (req, res) {
 	});
 
 	// Render the view
-	view.render('blog');
+	view.render('blog', locals, function(err, body){
+		staticr.cache(req.originalUrl, body);
+        res.send(body);
+	});
+
 };

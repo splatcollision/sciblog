@@ -9,7 +9,9 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
-		title= title || 'Splat Collision Industries: Writing about technology, machine learning, and natural language.'
+		link(rel="alternate" type="application/rss+xml" title="Blog RSS Feed" href="/rss/")
+
+		title= title || 'Splat Collision Industries: My writing about web technology, machine learning, and natural language analysis research.'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 
 		
@@ -17,7 +19,7 @@ html
 		link(href="/styles/site.css", rel="stylesheet")
 
 		//- This file provides the default styling for the KeystoneJS Content Editor
-		// if user && user.canAccessKeystone
+		//- if user && user.canAccessKeystone
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
 
@@ -31,16 +33,17 @@ html
 	body
 
 		//- HEADER
-		#header: .container
+		header#header
 
-			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
-			//- ... or completely change this header to suit your design.
+			.container.bigheader
+				h1 Splat Collision Web Industries
+			
+			.container.nav
+				div(role="navigation")
+					each link in navLinks
 
-			div(role="navigation").navbar.navbar-default
-				each link in navLinks
-
-					a(href=link.href)= link.label
-					br
+						a(href=link.href)= link.label
+						br
 				
 
 		//- BODY
@@ -62,12 +65,11 @@ html
 
 
 		//- FOOTER
-		.container: #footer
+		footer.container: #footer
 
 			p This is the web log of 
 				a(href="/about") Splat Collision Industries.
-			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-			// p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
+			p: a(href="/rss/feed.xml") Subscribe.
 
 
 		//- JAVASCRIPT
@@ -83,7 +85,7 @@ html
 
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
 		//- which generate links to edit content for users who can access Keystone
-		// if user && user.canAccessKeystone
+		//- if user && user.canAccessKeystone
 			script(src='/keystone/js/content/editor.js')
 
 		//- Add scripts that are globally required by your site here.

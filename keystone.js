@@ -21,10 +21,14 @@ keystone.init({
 
 	'auto update': true,
 	'session': true,
+	'session store': "mongo",
 	'auth': true,
 	'user model': 'User',
 });
 
+keystone.set('dirname', __dirname);
+keystone.set('staticr', require('./static'));
+keystone.set('ftpr', require('./lib/ftpr'));
 // Load your project's Models
 keystone.import('models');
 

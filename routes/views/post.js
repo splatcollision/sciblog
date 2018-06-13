@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-
+var staticr = keystone.get('staticr');
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
@@ -42,5 +42,9 @@ exports = module.exports = function (req, res) {
 	});
 
 	// Render the view
-	view.render('post');
+	
+	view.render('post', locals, function(err, body){
+		staticr.cache(req.originalUrl, body);
+        res.send(body);
+	});
 };
